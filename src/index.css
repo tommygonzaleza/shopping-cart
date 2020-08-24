@@ -1,13 +1,103 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background-color: #00F08A;
+  font-family: 'Poppins', sans-serif;
+  position: fixed;
+  top: 0;
+}
+.nav-logo {
+  color: #F5F5F5;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 20px;
+  padding-left: 10%;
+}
+.nav-logo a {
+  font-size: 32px;
+  color: #F5F5F5;
+  text-decoration: none;
+  letter-spacing: 3px;
+}
+.nav-logo a:hover {
+  color: #A7FEC8;
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 40%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.nav-links li {
+  list-style: none;
+}
+.nav-links a {
+  color: #F5F5F5;
+  text-decoration: none;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+.nav-links a:hover {
+  color: #A7FEC8;
+  text-decoration: none;
+}
+.shopping-cart {
+  color: #F5F5F5;
+  font-size: 36px;
+}
+
+.shopping-cart:hover {
+  color: #A7FEC8;
+  text-decoration: none;
+}
+.shopping-cart-mobile {
+  display: none;
+}
+.mobile-navbar {
+  color: #F5F5F5;
+  font-size: 28px;
+  display: none;
+}
+
+@media screen and (max-width:768px){
+  .nav-links {
+    position: absolute;
+    right: 0px;
+    top: 64px;
+    height: 30vh;
+    background-color: #00D37A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .shopping-cart {
+    display: none;
+  }
+  .shopping-cart-mobile {
+    display: flex;
+    color: #F5F5F5;
+    font-size: 36px;
+    position: absolute;
+    right: 56px;
+    top: 14px;
+  }
+  .mobile-navbar {
+    display: flex;
+    cursor: pointer;
+  }
 }
