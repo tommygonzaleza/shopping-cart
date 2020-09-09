@@ -8,7 +8,7 @@ const MyNavbar = () => {
     return (
         <Navbar>
             <NavItem href="/" title="Home" />
-            <NavItem href="/" title="Products" />
+            <NavItem href="/products" title="Products" />
             <NavItem href="/" title="About" />
             <NavItem href="/" title={<ShoppingCartOutlined className="shopping-cart"/>} />
         </Navbar>

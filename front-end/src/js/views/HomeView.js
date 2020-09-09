@@ -6,17 +6,7 @@ const HomeView = () => {
     return (
         <div>
             <MyNavbar />
-            <div className="products">
-                {ProductsData.map((product, idx) => (
-                    <div className="product-card" key={idx}>
-                        <img src={product.image} alt={product.name} />
-                        <h3>{product.name}</h3>
-                        <h6>{product.price}</h6>
-                        <p>{product.description}</p>
-                        <button href={product.id}>More Info</button>
-                    </div>
-                ))}
-            </div>
+            <h2>Home View</h2>
         </div>
     );
 }

@@ -6,6 +6,13 @@ body {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+code {
+  font-family: 'Poppins', sans-serif;
+}
+a:hover {
+  text-decoration: none;
 }
 
 /* Navbar Styles */
@@ -17,8 +24,9 @@ body {
   align-items: center;
   min-height: 8vh;
   background-color: #00F08A;
-  position: sticky;
+  position: static;
   top: 0px;
+  z-index: 1;
 }
 .nav-logo {
   color: #F5F5F5;
@@ -64,7 +72,11 @@ body {
   color: #F5F5F5;
   font-size: 36px;
 }
-
+.nav-cart span {
+  position: absolute;
+  top: 12px;
+  right: 24px;
+}
 .shopping-cart:hover {
   color: #A7FEC8;
   text-decoration: none;
@@ -79,6 +91,9 @@ body {
 }
 
 @media screen and (max-width:768px){
+  body {
+    overflow-x: hidden;
+  }
   .nav-links {
     position: absolute;
     right: 0px;
@@ -111,48 +126,62 @@ body {
 
 /* Products Styles */
 
+.section h2 {
+  margin: 24px 0px 10px 36px;
+}
 .products {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   width: 100%;
   align-items: center;
-  padding: 5vh;
+  justify-content: center;
+  padding: 16px;
 }
 .product-card {
-  font-family: 'Poppins', sans-serif;
-  width: 75%;
+  width: 250px;
+  height: 410px;
   text-align: center;
+  overflow: hidden;
+  padding: 0px 24px;
+  margin: 10px;
+  border: 1px solid #eee;
+  box-shadow: 2px 8px 20px #ddd;
+  transition: 0.5s linear;
+}
+.product-card:hover {
+  box-shadow: none;
+}
+.product-card h3 a{
+  text-decoration: none;
+  color: #2F2529;
+  transition: 1.3s color;
+}
+.product-card h3 a:hover {
+  color: #00D37A;
 }
 .product-card h6 {
   font-size: 18px;
+  margin: 10px 0px;
 }
 .product-card img {
+  display: block;
+  max-width: 250px;
+  max-height: 300px;
+  padding: 16px;
   width: 100%;
+  object-fit: cover;
 }
 .product-card button {
+  display: block;
   width: 100%;
   border-color: rgba(0, 202, 118, 0.89);
   border-style: solid;
   border-radius: 3%;
   background-color: #00F08A;
   transition: background-color 0.5s;
+  letter-spacing: 2px;
 }
 .product-card button:hover {
   background-color: rgba(0, 202, 118, 0.89);
   border-color: rgba(2, 187, 110, 0.89);
-}
-
-@media screen and (max-width:900px){
-  .products {
-    grid-template-columns: 1fr;
-  }
-  .product-card {
-    width: 100%;
-    padding: 5vh;
-  }
-  .product-card button {
-    width: 80%;
-    height: 40px;
-    border-radius: 5%;
-  }
 }
