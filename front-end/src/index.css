@@ -129,6 +129,42 @@ a:hover {
 .section h2 {
   margin: 24px 0px 10px 36px;
 }
+.section div input {
+  display: inline-block;
+  margin-left: 11%;
+  width: 56%;
+  padding: 6px 20px;
+  border-color: #eeeeee;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 25px;
+  box-shadow: 1px 3px 9px #b8b7b7;
+  outline: none;
+}
+.section div input::placeholder{
+  color: #b8b7b7;
+  letter-spacing: 2px;
+}
+.section form {
+  display: inline-block;
+}
+.section form select {
+  width: 41vh;
+  color: #b8b7b7;
+  padding: 6px 20px;
+  margin-left: 10%;
+  border-color: #eeeeee;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 25px;
+  box-shadow: 1px 3px 9px #b8b7b7;
+  letter-spacing: 1px;
+  outline: none;
+  text-transform: uppercase;
+}
+.section form select option {
+  background-color: whitesmoke;
+}
 .products {
   display: flex;
   flex-wrap: wrap;
@@ -184,4 +220,31 @@ a:hover {
 .product-card button:hover {
   background-color: rgba(0, 202, 118, 0.89);
   border-color: rgba(2, 187, 110, 0.89);
+}
+
+@media screen and (max-width:768px){
+  .section h2 {
+    margin: 10px;
+    text-align: center;
+  }
+  .section input {
+    display: block;
+    position: absolute;
+    left: 33%;
+    top: 120px;
+    transform: translate(-40%);
+    margin: 12px 0;
+  }
+  .section form {
+    display: block;
+    position: absolute;
+    left: 44%;
+    top: 175px;
+    transform: translate(-49%);
+    margin: 12px 0;
+  }
+  .section .products {
+    position: relative;
+    top: 100px;
+  }
 }
