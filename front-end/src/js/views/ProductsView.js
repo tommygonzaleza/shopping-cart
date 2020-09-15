@@ -6,14 +6,19 @@ import ProductsData from '../ProductsData';
 const ProductsView = () => {
     
     const [search, setSearch] = useState("");
+    const [sortBy, setSortBy] = useState("");
 
-    const handleChange = e => {
+    const handleChangeSortBy = e => {
+        setSortBy(e.target.value);
+    }
+
+    const handleChangeInput = e => {
         setSearch(e.target.value);
-    };
+    }
 
     const results = !search ? ProductsData : ProductsData.filter((product) => 
         product.name.includes(search)
-    );
+    )
 
     return (
         <div>
@@ -21,14 +26,7 @@ const ProductsView = () => {
             <div className="section">
                 <h2>Products</h2>
                 <div>
-                    <input placeholder="Search" value={search} onChange={handleChange}></input>
-                    <form action="">
-                        <select id="sortby" name="sortby">
-                            <option value="" disabled selected>Sort By</option>
-                            <option value="Lower">Lower to Higher Price</option>
-                            <option value="Higher">Higher to Lower Price</option>
-                        </select>
-                    </form>
+                    <input placeholder="Search" value={search} onChange={handleChangeInput}></input>
                 </div>
                 <div className="products">
                     {results.map((product, idx) => (
