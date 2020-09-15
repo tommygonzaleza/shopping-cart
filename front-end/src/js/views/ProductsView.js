@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import MyNavbar from '../components/MyNavbar';
 import ProductsData from '../ProductsData';
@@ -6,11 +6,6 @@ import ProductsData from '../ProductsData';
 const ProductsView = () => {
     
     const [search, setSearch] = useState("");
-    const [sortBy, setSortBy] = useState("");
-
-    const handleChangeSortBy = e => {
-        setSortBy(e.target.value);
-    }
 
     const handleChangeInput = e => {
         setSearch(e.target.value);
