@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 import os
 
 # Init app
 app = Flask(__name__)
+CORS(app)
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 # Database
@@ -59,7 +61,7 @@ products_schema = ProductSchema(many=True, strict=True)
 # Create a Product
 @app.route('/product', methods=['POST'])
 def add_product():
-    name = request.json['name']
+    name = request.json["name"]
     image = request.json['image']
     price = request.json['price']
     brand = request.json['brand']

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import MyNavbar from '../components/MyNavbar';
 import ProductsData from '../ProductsData';
@@ -6,6 +6,29 @@ import ProductsData from '../ProductsData';
 const ProductsView = () => {
     
     const [search, setSearch] = useState("");
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch(
+            "http://127.0.0.1:5000/product",
+            {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json" 
+                }
+            }
+        ).then(response => {
+            let res = response.clone();
+            console.log(res.ok);
+            console.log(res.status);
+            console.log(res.text());
+        }).then(data => {
+            console.log(data);
+            setProducts(data);
+        }).catch(error => {
+            console.log(error);
+        });
+    })
 
     const handleChangeInput = e => {
         setSearch(e.target.value);
