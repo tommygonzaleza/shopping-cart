@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import MyNavbar from '../components/MyNavbar';
-import ProductsData from '../ProductsData';
 
 const ProductsView = () => {
     
@@ -9,32 +8,44 @@ const ProductsView = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch(
-            "http://127.0.0.1:5000/product",
-            {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json" 
+        const fetchProducts = () => {
+            fetch(
+                "http://127.0.0.1:5000/product",
+                {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json" 
+                    }
                 }
-            }
-        ).then(response => {
-            let res = response.clone();
-            console.log(res.ok);
-            console.log(res.status);
-            console.log(res.text());
-        }).then(data => {
-            console.log(data);
-            setProducts(data);
-        }).catch(error => {
-            console.log(error);
-        });
-    })
+            ).then(response => {
+                let res = response.clone();
+                console.log(res.status);
+                return res.json();
+            }).then(res2 => {
+                let data = res2;
+                console.log(data);
+                for(let i = 0; i < data.length; i++){
+                    handleProducts(data[i]);
+                }
+                console.log(products);
+            }).catch(error => {
+                console.log(error);
+            });
+        }
+        fetchProducts();
+    }, [])
+
+    const handleProducts = (data) => {
+        let currentProducts = products;
+        currentProducts.push(data);
+        setProducts([...products, currentProducts]);
+    }
 
     const handleChangeInput = e => {
         setSearch(e.target.value);
     }
 
-    const results = !search ? ProductsData : ProductsData.filter((product) => 
+    const results = !search ? products : products.filter((product) => 
         product.name.includes(search)
     )
 
